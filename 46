@@ -1,0 +1,15 @@
+#x=int(input())  # необходимое время сна в минутах
+#y=int(input()) # часы после 12
+#q=int(input())  # минуты после 12
+
+#y1=y/60;
+
+#k=(x+y1+q)
+k1=50/60
+k2=80%60
+
+print(k1,k2)
+print(type(k1))
+
+#print(round(k1))
+#print(int(k2))

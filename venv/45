@@ -1,0 +1,42 @@
+import numpy as np
+from scipy.integrate import odeint
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+# function that returns dy/dt
+def dydt(y,t):
+ k=y[0]
+ p=y[1]
+ o=y[2]
+ upr_x=k*o
+ upr_y=p**p
+ upr_z=k**p+o
+ return upr_x, upr_y, upr_z
+
+# initial condition
+t = np.linspace(0,1) # вектор моментов времени
+y0 = np.array([0.1,0.5,0.8]) # начальное значение
+y = odeint(dydt, y0, t) # решение уравнения
+
+
+#print('sad',y)
+#print(y[0])
+X=y[:,0]
+Y=y[:,1]
+Z=y[:,2]
+print('first',X)
+# X=X[:, None]
+# Y=Y[:, None]
+# Z=Z[:, None]
+#X= X.transpose()
+print('second',X,'\n','third',Y,'\n','ford',Z)
+print(type (X))
+#y = np.array(y).flatten() # преобразование массива
+
+
+# plot results
+plt.plot(X,Y)
+plt.xlabel('time')
+plt.ylabel('y(t)')
+plt.grid(True)
+
+plt.show()
